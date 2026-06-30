@@ -1,24 +1,23 @@
-@import url(
-    "https://fonts.googleapis.com/css2?"
-);
-:root{
+@import url("https://googleapis.com");
+
+:root {
     --cor-de-fundo: #1E1E1E;
     --verde: #6FFF57;
     --branco: #FFFFFF;
     --botao-ativo: #3A375E;
     --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58,55,94,0.3);
+    --texto-fundo: rgba(58, 55, 94, 0.3);
 }
 
-
-body{
+body {
     background-color: var(--cor-de-fundo);
     color: var(--branco);
     font-family: 'Chakra Petch', sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
-
-.conteudo-principal{
+.conteudo-principal {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,20 +27,26 @@ body{
     margin: 0 auto;
 }
 
-
-.titulo-pricipal{
+.titulo-principal {
     text-align: left;
     width: 100%;
     font-size: 32px;
 }
 
-
-.titulo-pricipal span{
+.titulo-principal span {
     color: var(--verde);
 }
 
+.conteudo {
+    width: 100%;
+}
 
-.botao{
+.botoes {
+    display: block;
+    width: 100%;
+}
+
+.botao {
     font-family: "Chakra Petch", sans-serif;
     background-color: var(--botao-inativo);
     color: var(--branco);
@@ -55,14 +60,92 @@ body{
     border-left: 2px solid var(--botao-ativo);
     border-right: 2px solid var(--botao-ativo);
     border-top: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
 }
 
-
-.botao:first-child{
+.botao:first-child {
     border-radius: 40px 40px 0 0;
 }
 
+/* Oculta todas as abas por padrão */
+.aba-conteudo {
+    display: none;
+}
 
-.botoes{
+/* Estilo do botão quando está ativo */
+.botao.ativo {
+    background-color: var(--botao-ativo);
+    border-bottom: 4px solid var(--verde);
+}
+
+/* Mostra apenas a aba que recebe a classe ativo pelo JS */
+.aba-conteudo.ativo {
     display: block;
+}
+
+.abas-textos {
+    background-color: var(--texto-fundo);
+    padding: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.aba-conteudo-titulo-principal {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.aba-conteudo-titulo-secundario {
+    text-align: center;
+    color: var(--verde);
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* Configuração do Layout do Cronômetro */
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contador-digito {
+    text-align: center;
+    min-width: 80px;
+}
+
+.contador-digito-numero {
+    font-size: 40px;
+    margin: 0;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.contador-digito-texto {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: var(--branco);
+}
+
+/* Telas Computadores / Tablets (a partir de 768px) */
+@media screen and (min-width: 768px) {
+    .botoes {
+        display: flex;
+    }
+   
+    .botao {
+        border-top: 2px solid var(--botao-ativo);
+    }
+   
+    .botao:first-child {
+        border-radius: 40px 0 0 0;
+    }
+   
+    .botao:last-child {
+        border-radius: 0 40px 0 0;
+    }
 }
